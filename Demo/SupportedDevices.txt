@@ -1,0 +1,2 @@
+ARCore: https://developers.google.com/ar/discover/supported-devices
+ARKit: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/DeviceCompatibilityMatrix/DeviceCompatibilityMatrix.html
