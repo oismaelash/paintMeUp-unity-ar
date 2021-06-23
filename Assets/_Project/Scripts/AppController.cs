@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,11 @@ public class AppController : MonoBehaviour
         }
     }
 
+    public Action<Renderer> partOfBodyChooseEvent;
+    public Action<Color> colorChooseEvent;
+
+    [SerializeField] private Renderer chooseRenderer;
+
 
     #endregion
 
@@ -46,20 +52,24 @@ public class AppController : MonoBehaviour
         getColorButton.onClick.AddListener(OnButtonGetColorClicked);
         colorPicker.OnColorPickerEvent += (color) =>
         {
-            PersonModel personModel = FindObjectOfType<PersonModel>();
+            chooseRenderer.material.color = color;
 
-            if(personModel is null)
-            {
-                Debug.LogError("personModel is null");
-                return;
-            }
+            //PersonModel personModel = FindObjectOfType<PersonModel>();
 
-            if (personModel.GetPartOfBodyDict().ContainsKey(ColorUtility.ToHtmlStringRGBA(color)))
-            {
-                personModel.GetPartOfBodyDict()[ColorUtility.ToHtmlStringRGBA(color)].material.color = color;
-                ColorsCountFindCurrent++;
-            }
+            //if(personModel is null)
+            //{
+            //    Debug.LogError("personModel is null");
+            //    return;
+            //}
+
+            //if (personModel.GetPartOfBodyDict().ContainsKey(ColorUtility.ToHtmlStringRGBA(color)))
+            //{
+            //    personModel.GetPartOfBodyDict()[ColorUtility.ToHtmlStringRGBA(color)].material.color = color;
+            //    ColorsCountFindCurrent++;
+            //}
         };
+
+        partOfBodyChooseEvent += PartOfBodyChooseEvent;
     }
 
     #endregion
@@ -72,6 +82,12 @@ public class AppController : MonoBehaviour
         //renderTexture.height = Screen.height;
         //Camera.main.targetTexture = renderTexture;
         StartCoroutine(GetScreenshot_Coroutine());
+    }
+
+    private void PartOfBodyChooseEvent(Renderer renderer)
+    {
+        chooseRenderer = renderer;
+        renderer.material.color = Color.gray;
     }
 
     #endregion

@@ -25,8 +25,20 @@ public class PlaceContent : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !Utils.IsClickOverUI(raycaster) && !Utils.IsClickOverUI(raycaster2)) 
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100))
         {
+            if (hit.transform.GetComponent<PartOfBody>())
+            {
+                Debug.LogWarning($"Click on PartOfBody");
+                return;
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0) && !Utils.IsClickOverUI(raycaster) && !Utils.IsClickOverUI(raycaster2)) 
+        {   
             List<ARRaycastHit> hitPoints = new List<ARRaycastHit>();
             raycastManager.Raycast(Input.mousePosition, hitPoints, TrackableType.Planes);
 
