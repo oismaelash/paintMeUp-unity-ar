@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +15,8 @@ public class AppController : MonoBehaviour
     [SerializeField] private Image colorPreviewImage;
     [SerializeField] private RawImage screenshotRawImage;
     [SerializeField] private Button getColorButton;
-    [SerializeField] private RenderTexture renderTexture;
+    [SerializeField] private GameObject canvasGameplay;
+
     public PersonSO PersonSOSelected;
     public int colorsCountFindCurrent;
     public int ColorsCountFindCurrent
@@ -24,7 +26,7 @@ public class AppController : MonoBehaviour
         {
             colorsCountFindCurrent = value;
 
-            if(colorsCountFindCurrent == PersonSOSelected.PersonModel.GetColors().Count)
+            if(PersonSOSelected != null && colorsCountFindCurrent == PersonSOSelected.PersonModel.GetColors().Count)
             {
                 Debug.Log("Finish game");
                 SceneManager.LoadScene(0);
@@ -40,6 +42,7 @@ public class AppController : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        ColorsCountFindCurrent = 0;
         getColorButton.onClick.AddListener(OnButtonGetColorClicked);
         colorPicker.OnColorPickerEvent += (color) =>
         {
@@ -68,9 +71,21 @@ public class AppController : MonoBehaviour
         //renderTexture.width = Screen.width;
         //renderTexture.height = Screen.height;
         //Camera.main.targetTexture = renderTexture;
-        getColorButton.gameObject.SetActive(false);
+        StartCoroutine(GetScreenshot_Coroutine());
+    }
+
+    #endregion
+
+    #region COROUTINES
+
+    private IEnumerator GetScreenshot_Coroutine()
+    {
+        canvasGameplay.SetActive(false);
+        yield return new WaitForSeconds(.2f);
         Texture2D screenshotTexture2D = ScreenCapture.CaptureScreenshotAsTexture();
         Debug.Log($"screenshotTexture2D.isReadable: {screenshotTexture2D.isReadable}");
+        yield return new WaitForSeconds(.2f);
+        canvasGameplay.SetActive(true);
         screenshotRawImage.gameObject.SetActive(true);
         screenshotRawImage.texture = null;
         screenshotRawImage.texture = screenshotTexture2D;
@@ -78,3 +93,4 @@ public class AppController : MonoBehaviour
 
     #endregion
 }
+    

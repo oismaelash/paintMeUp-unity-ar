@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 1344352729}
   - component: {fileID: 1344352728}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Gameplay_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2663,7 +2663,7 @@ MonoBehaviour:
   colorPreviewImage: {fileID: 382994929}
   screenshotRawImage: {fileID: 907556211}
   getColorButton: {fileID: 1305753045}
-  renderTexture: {fileID: 8400000, guid: a7f073b90c0ff4745bdc60a70e49c91a, type: 2}
+  canvasGameplay: {fileID: 1344352727}
   PersonSOSelected: {fileID: 0}
   colorsCountFindCurrent: 0
 --- !u!4 &1568826965
