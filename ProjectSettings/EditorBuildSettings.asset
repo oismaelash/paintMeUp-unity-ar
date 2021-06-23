@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/ARFoundationStarterBasic/Scenes/SimpleAR_LWRP_PostProcessing.unity
     guid: 656f21cfbb4644341998efb97b993414
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/_Project/Scenes/Main.unity
+    guid: 878c418fd9c5fdf49a5d9e87f5797add
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 7934d49216943e3438f8864f5f40bd91,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: f4f97e8750dc9c449ae482b1bb9d0795,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c21394dc54f61da439f10d748587675b,
+      type: 2}

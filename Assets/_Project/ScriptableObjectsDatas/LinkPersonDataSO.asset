@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c122bee097c610f47916b0e16d668656, type: 3}
+  m_Name: LinkPersonDataSO
+  m_EditorClassIdentifier: 
+  Name: Person Link
+  icon: {fileID: 21300000, guid: 25a2217369cfca64196274fdbdf0caa1, type: 3}
+  PersonModel: {fileID: 9218318169026777977, guid: 3a705689e0ef89f4f8eca29ba14b726c,
+    type: 3}

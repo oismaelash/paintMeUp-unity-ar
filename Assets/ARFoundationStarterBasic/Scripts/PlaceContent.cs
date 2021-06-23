@@ -9,6 +9,7 @@ public class PlaceContent : MonoBehaviour
 {
     [SerializeField] private Transform m_PlacedPrefab;
     [SerializeField] private GraphicRaycaster raycaster;
+    [SerializeField] private GraphicRaycaster raycaster2;
     private ARRaycastManager raycastManager;
     /// <summary>
     /// Invoked whenever an object is placed in on a plane.
@@ -24,7 +25,7 @@ public class PlaceContent : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !Utils.IsClickOverUI(raycaster))
+        if (Input.GetMouseButtonDown(0) && !Utils.IsClickOverUI(raycaster) && !Utils.IsClickOverUI(raycaster2)) 
         {
             List<ARRaycastHit> hitPoints = new List<ARRaycastHit>();
             raycastManager.Raycast(Input.mousePosition, hitPoints, TrackableType.Planes);
@@ -33,6 +34,7 @@ public class PlaceContent : MonoBehaviour
             {
                 if (spawnedPrefab == null)
                 {
+                    m_PlacedPrefab = AppController.Instance.PersonSOSelected.PersonModel.transform;
                     Pose hitPose = hitPoints[0].pose;
                     spawnedPrefab = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
                     OnPlacedContent?.Invoke();

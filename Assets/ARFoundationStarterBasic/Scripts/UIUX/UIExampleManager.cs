@@ -4,6 +4,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class UIExampleManager : MonoBehaviour
 {
+    public GameObject firstCanvas;
     private ARCameraManager m_CameraManager;
     private ARPlaneManager m_PlaneManager;
 
@@ -69,8 +70,8 @@ public class UIExampleManager : MonoBehaviour
         if (m_CameraManager != null)
             m_CameraManager.frameReceived += FrameChanged;
 
-        //PlaceContent.OnPlacedContent += PlacedObject;
-        PlaceMultipleContent.OnPlacedContent += PlacedObject;
+        PlaceContent.OnPlacedContent += PlacedObject;
+        //PlaceMultipleContent.OnPlacedContent += PlacedObject;
     }
 
     void OnDisable()
@@ -113,6 +114,8 @@ public class UIExampleManager : MonoBehaviour
                 tapToPlaceAnimation.SetTrigger(k_FadeOffAnim);
 
             m_ShowingTapToPlace = false;
+            gameObject.SetActive(false);
+            firstCanvas.SetActive(true);
         }
     }
 
