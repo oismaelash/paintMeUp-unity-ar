@@ -4,6 +4,8 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
 using System;
+using PaintMeUp.Controllers;
+using PaintMeUp.Commons;
 
 public class PlaceContent : MonoBehaviour
 {
