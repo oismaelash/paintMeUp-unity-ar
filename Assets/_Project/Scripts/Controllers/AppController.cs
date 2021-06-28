@@ -20,13 +20,10 @@ namespace PaintMeUp.Controllers
         [SerializeField] private RawImage screenshotRawImage;
         [SerializeField] private Button getColorButton;
         [SerializeField] private GameObject canvasGameplay;
-
         public PersonSO PersonSOSelected { get; set; }
-
-
+        public string Username{ get; set; }
         public Action<Renderer> partOfBodyChooseEvent;
         public Action<Color> colorChooseEvent;
-
         private Renderer chooseRenderer;
 
 
@@ -58,6 +55,15 @@ namespace PaintMeUp.Controllers
         };
 
             partOfBodyChooseEvent += PartOfBodyChooseEvent;
+        }
+
+        #endregion
+
+        #region PUBLIC_METHODS
+
+        public void GetUsername(string value)
+        {
+            Username = value;
         }
 
         #endregion
