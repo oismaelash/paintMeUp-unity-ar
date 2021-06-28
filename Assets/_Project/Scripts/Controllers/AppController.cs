@@ -37,21 +37,26 @@ namespace PaintMeUp.Controllers
             getColorButton.onClick.AddListener(OnButtonGetColorClicked);
             colorPicker.OnColorPickerEvent += (color) =>
             {
-                chooseRenderer.material.color = color;
+                 if(chooseRenderer != null) 
+                    chooseRenderer.material.color = color;
 
-            //PersonModel personModel = FindObjectOfType<PersonModel>();
 
-            //if(personModel is null)
-            //{
-            //    Debug.LogError("personModel is null");
-            //    return;
-            //}
 
-            //if (personModel.GetPartOfBodyDict().ContainsKey(ColorUtility.ToHtmlStringRGBA(color)))
-            //{
-            //    personModel.GetPartOfBodyDict()[ColorUtility.ToHtmlStringRGBA(color)].material.color = color;
-            //    ColorsCountFindCurrent++;
-            //}
+
+
+                //PersonModel personModel = FindObjectOfType<PersonModel>();
+
+                //if(personModel is null)
+                //{
+                //    Debug.LogError("personModel is null");
+                //    return;
+                //}
+
+                //if (personModel.GetPartOfBodyDict().ContainsKey(ColorUtility.ToHtmlStringRGBA(color)))
+                //{
+                //    personModel.GetPartOfBodyDict()[ColorUtility.ToHtmlStringRGBA(color)].material.color = color;
+                //    ColorsCountFindCurrent++;
+                //}
         };
 
             partOfBodyChooseEvent += PartOfBodyChooseEvent;
