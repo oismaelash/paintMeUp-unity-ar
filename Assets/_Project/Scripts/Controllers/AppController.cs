@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using PaintMeUp.ScriptableObjects;
 using PaintMeUp.Utils;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace PaintMeUp.Controllers
@@ -22,27 +21,13 @@ namespace PaintMeUp.Controllers
         [SerializeField] private Button getColorButton;
         [SerializeField] private GameObject canvasGameplay;
 
-        public PersonSO PersonSOSelected;
-        public int colorsCountFindCurrent;
-        public int ColorsCountFindCurrent
-        {
-            get { return colorsCountFindCurrent; }
-            set
-            {
-                colorsCountFindCurrent = value;
+        public PersonSO PersonSOSelected { get; set; }
 
-                if (PersonSOSelected != null && colorsCountFindCurrent == PersonSOSelected.PersonModel.GetColors().Count)
-                {
-                    Debug.Log("Finish game");
-                    SceneManager.LoadScene(0);
-                }
-            }
-        }
 
         public Action<Renderer> partOfBodyChooseEvent;
         public Action<Color> colorChooseEvent;
 
-        [SerializeField] private Renderer chooseRenderer;
+        private Renderer chooseRenderer;
 
 
         #endregion
@@ -52,7 +37,6 @@ namespace PaintMeUp.Controllers
         private void Start()
         {
             Instance = this;
-            ColorsCountFindCurrent = 0;
             getColorButton.onClick.AddListener(OnButtonGetColorClicked);
             colorPicker.OnColorPickerEvent += (color) =>
             {

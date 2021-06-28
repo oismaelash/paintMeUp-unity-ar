@@ -1129,6 +1129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 244744984}
+  - component: {fileID: 244744987}
   - component: {fileID: 244744986}
   - component: {fileID: 244744985}
   m_Layer: 5
@@ -1137,7 +1138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &244744984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1198,6 +1199,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244744983}
   m_CullTransparentMesh: 1
+--- !u!114 &244744987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244744983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722b8fb132fa42741930d24cc939142b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255179742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,7 +3059,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1579274371}
+      - m_Target: {fileID: 553204792}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3155,40 +3168,40 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Instructions:
 
-    
+
 
     -Choose your character
 
-    
 
-    -You have
-    120 seconds to color the entire character
 
-    
+    -You have 120 seconds
+    to color the entire character
 
-    -Click on the part of
-    the character where you want to color
 
-    
 
-    -Choose a really cool and
-    colorful environment
+    -Click on the part of the character where
+    you want to color
 
-    click no "pick a color" and take a picture!
 
-    
 
-    -Choose
-    the color to click on the photo
+    -Choose a really cool and colorful environment
 
-    
+    click
+    no "pick a color" and take a picture!
 
-    -When time runs out, you can see
-    the character in your head
 
-    
 
-    -Share your character in augmented reality!'
+    -Choose the color to click on the
+    photo
+
+
+
+    -When time runs out, you can see the character in your head
+
+
+
+    -Share
+    your character in augmented reality!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6230,9 +6243,6 @@ MonoBehaviour:
   screenshotRawImage: {fileID: 907556211}
   getColorButton: {fileID: 1305753045}
   canvasGameplay: {fileID: 1344352727}
-  PersonSOSelected: {fileID: 0}
-  colorsCountFindCurrent: 0
-  chooseRenderer: {fileID: 0}
 --- !u!4 &1568826965
 Transform:
   m_ObjectHideFlags: 0
@@ -8317,29 +8327,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 244744983}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 244744987}
+        m_TargetAssemblyTypeName: PaintMeUp.Screens.StartScreen, Assembly-CSharp
+        m_MethodName: OpenLink
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://paintmeup.ismaelnascimento.com/
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1579274371}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2090681816
 MonoBehaviour:
